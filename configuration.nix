@@ -110,21 +110,6 @@ python315
 uv
 docker
 docker-compose
-
-brave
-discord
-spotify
-steam
-bitwarden-desktop
-
-git
-slack
-teams-for-linux
-jetbrains.pycharm
-jetbrains.datagrip
-opentofu
-awscli2
-
 ];
 
   # Some programs need SUID wrappers, can be configured further or are
