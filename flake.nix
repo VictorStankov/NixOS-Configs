@@ -13,25 +13,29 @@
       # to avoid problems caused by different versions of nixpkgs.
       inputs.nixpkgs.follows = "nixpkgs";
     };
-};
+  };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs: {
+  outputs = {
+    self,
+    nixpkgs,
+    home-manager,
+    ...
+  } @ inputs: {
     # Please replace my-nixos with your hostname
     nixosConfigurations.vstankov = nixpkgs.lib.nixosSystem {
-    specialArgs = { inherit inputs; };
+      specialArgs = {inherit inputs;};
       modules = [
         # Import the previous configuration.nix we used,
         # so the old configuration file still takes effect
         ./configuration.nix
 
-	home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
 
-            home-manager.users.vstankov = ./home.nix;
-
-          }
+          home-manager.users.vstankov = ./home.nix;
+        }
       ];
     };
   };

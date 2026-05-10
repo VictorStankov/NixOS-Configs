@@ -1,37 +1,39 @@
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   home.username = "vstankov";
   home.homeDirectory = "/home/vstankov";
 
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
-  brave
-  discord
-  spotify
-  steam
-  bitwarden-desktop
-  rustdesk-flutter
+    brave
+    discord
+    spotify
+    steam
+    bitwarden-desktop
+    rustdesk-flutter
 
-  slack
-  teams-for-linux
-  jetbrains.pycharm
-  jetbrains.datagrip
-  opentofu
-  awscli2
+    slack
+    teams-for-linux
+    jetbrains.pycharm
+    jetbrains.datagrip
+    opentofu
+    awscli2
   ];
 
   # basic configuration of git, please change to your own
   programs.git = {
     enable = true;
-    
+
     settings.user = {
-    name = "VictorStankov";
-    email = "64612982+VictorStankov@users.noreply.github.com";
-  };
+      name = "VictorStankov";
+      email = "64612982+VictorStankov@users.noreply.github.com";
+    };
   };
 
-programs.zsh = {
+  programs.zsh = {
     enable = true;
 
     shellAliases = {
@@ -41,19 +43,19 @@ programs.zsh = {
     oh-my-zsh = {
       enable = true;
       theme = "agnoster";
-      plugins = [ "git" ];
+      plugins = ["git"];
     };
   };
 
-    programs.neovim = {
-  enable = true;
-  viAlias = true;
-  vimAlias = true;
-  withRuby = false;
-  withPython3 = false;
+  programs.neovim = {
+    enable = true;
+    viAlias = true;
+    vimAlias = true;
+    withRuby = false;
+    withPython3 = false;
   };
   xdg.configFile = {
-  "nvim/init.vim".source = ./configs/nvim/init.vim;
+    "nvim/init.vim".source = ./configs/nvim/init.vim;
   };
 
   # This value determines the home Manager release that your
