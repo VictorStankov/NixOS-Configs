@@ -11,6 +11,7 @@
   spotify
   steam
   bitwarden-desktop
+  rustdesk-flutter
 
   slack
   teams-for-linux
@@ -27,7 +28,7 @@
     settings.user = {
     name = "VictorStankov";
     email = "64612982+VictorStankov@users.noreply.github.com";
-  }
+  };
   };
 
 programs.zsh = {
