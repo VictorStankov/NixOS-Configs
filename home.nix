@@ -41,6 +41,17 @@ programs.zsh = {
     };
   };
 
+    programs.neovim = {
+  enable = true;
+  viAlias = true;
+  vimAlias = true;
+  withRuby = false;
+  withPython3 = false;
+  };
+  xdg.configFile = {
+  "nvim/init.vim".source = ./configs/nvim/init.vim;
+  };
+
   # This value determines the home Manager release that your
   # configuration is compatible with. This helps avoid breakage
   # when a new home Manager release introduces backwards
