@@ -23,8 +23,11 @@
   # basic configuration of git, please change to your own
   programs.git = {
     enable = true;
-    userName = "VictorStankov";
-    userEmail = "64612982+VictorStankov@users.noreply.github.com";
+    
+    settings.user = {
+    name = "VictorStankov";
+    email = "64612982+VictorStankov@users.noreply.github.com";
+  }
   };
 
 programs.zsh = {
