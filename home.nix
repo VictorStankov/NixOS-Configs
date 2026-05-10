@@ -21,12 +21,25 @@
   ];
 
   # basic configuration of git, please change to your own
-  #programs.git = {
-  #  enable = true;
-  #  userName = "VictorStankov";
-  #  userEmail = "64612982+VictorStankov@users.noreply.github.com";
-  #};
+  programs.git = {
+    enable = true;
+    userName = "VictorStankov";
+    userEmail = "64612982+VictorStankov@users.noreply.github.com";
+  };
 
+programs.zsh = {
+    enable = true;
+
+    shellAliases = {
+      ll = "ls -la";
+    };
+
+    oh-my-zsh = {
+      enable = true;
+      theme = "agnoster";
+      plugins = [ "git" ];
+    };
+  };
 
   # This value determines the home Manager release that your
   # configuration is compatible with. This helps avoid breakage
