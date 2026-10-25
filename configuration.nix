@@ -10,7 +10,12 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    inputs.awsvpnclient.nixosModules.default
   ];
+
+  programs.awsvpnclient.enable = true;
+  services.resolved.enable = true;
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;

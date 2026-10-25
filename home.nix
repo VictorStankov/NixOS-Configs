@@ -1,12 +1,16 @@
 {
   config,
   pkgs,
+  inputs,
+  imports,
   ...
 }: let
   configDirectory = "${config.home.homeDirectory}/nixos_configs/configs";
 in {
   home.username = "vstankov";
   home.homeDirectory = "/home/vstankov";
+
+  imports = [./plasma.nix];
 
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
