@@ -55,7 +55,14 @@
     withPython3 = false;
   };
   xdg.configFile = {
-    "nvim/init.vim".source = ./configs/nvim/init.vim;
+    "nvim/init.vim" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nvim/init.vim";
+      force = true;
+    };
+    "hypr/hyprland.lua" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/hyprland/hyprland.lua";
+      force = true;
+    };
   };
 
   # This value determines the home Manager release that your
