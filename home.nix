@@ -2,7 +2,9 @@
   config,
   pkgs,
   ...
-}: {
+}: let
+  configDirectory = "${config.home.homeDirectory}/nixos_configs/configs";
+in {
   home.username = "vstankov";
   home.homeDirectory = "/home/vstankov";
 
@@ -55,12 +57,12 @@
     withPython3 = false;
   };
   xdg.configFile = {
-    "nvim/init.vim" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nvim/init.vim";
+    "nvim/init.lua" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${configDirectory}/nvim/init.lua";
       force = true;
     };
     "hypr/hyprland.lua" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/hyprland/hyprland.lua";
+      source = config.lib.file.mkOutOfStoreSymlink "${configDirectory}/hyprland/hyprland.lua";
       force = true;
     };
   };
