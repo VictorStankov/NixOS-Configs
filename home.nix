@@ -76,6 +76,11 @@ in {
 
       export EDITOR=nvim
       eval "$(direnv hook zsh)"
+      export PATH=$PATH:~/bin
+    '';
+
+    profileExtra = ''
+      export PATH=$PATH:~/bin
     '';
   };
 
