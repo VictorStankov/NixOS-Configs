@@ -6,7 +6,8 @@
   imports,
   ...
 }: let
-  configDirectory = "${config.home.homeDirectory}/nixos_configs/configs";
+  repoDirectory = "${config.home.homeDirectory}/nixos_configs";
+  configDirectory = "${repoDirectory}/configs";
 in {
   home.username = "vstankov";
   home.homeDirectory = "/home/vstankov";
@@ -91,6 +92,16 @@ in {
     withRuby = false;
     withPython3 = false;
   };
+
+  xdg.binHome = "${config.home.homeDirectory}/bin";
+  xdg.localBinInPath = true;
+
+  home.file."bin/layout-switch" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${repoDirectory}/scripts/layout-switch";
+    #    executable = true;
+    force = true;
+  };
+
   xdg.configFile = {
     "nvim/init.lua" = {
       source = config.lib.file.mkOutOfStoreSymlink "${configDirectory}/nvim/init.lua";

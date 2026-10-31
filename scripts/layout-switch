@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+CURRENT=$(qdbus org.kde.keyboard /Layouts getLayout)
+
+case "$1" in
+
+en_bg)
+    if [ "$CURRENT" -eq 1 ]; then
+        qdbus org.kde.keyboard /Layouts setLayout 0
+    else
+        qdbus org.kde.keyboard /Layouts setLayout 1
+    fi
+;;
+
+en_intl)
+    if [ "$CURRENT" -eq 2 ]; then
+        qdbus org.kde.keyboard /Layouts setLayout 0
+    else
+        qdbus org.kde.keyboard /Layouts setLayout 2
+    fi
+;;
+
+esac
