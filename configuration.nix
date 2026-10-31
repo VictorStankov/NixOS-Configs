@@ -16,6 +16,8 @@
   programs.awsvpnclient.enable = true;
   services.resolved.enable = true;
 
+  virtualisation.docker.enable = true;
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -91,7 +93,7 @@
     isNormalUser = true;
     shell = pkgs.zsh;
     description = "Victor Stankov";
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = ["networkmanager" "wheel" "docker"];
     packages = with pkgs; [
       kdePackages.kate
       #  thunderbird
@@ -109,6 +111,9 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    direnv
+    nix-direnv
+
     btop
     yazi
     ghostty
