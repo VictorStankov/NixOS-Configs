@@ -29,6 +29,18 @@ in {
     awscli2
   ];
 
+  programs.vicinae = {
+    # Schema: https://www.vicinae.com/schemas/config.json
+    # Default Config: `vicinae config default`
+
+    enable = true;
+
+    systemd = {
+      enable = true;
+      autoStart = true;
+    };
+  };
+
   # basic configuration of git, please change to your own
   programs.git = {
     enable = true;

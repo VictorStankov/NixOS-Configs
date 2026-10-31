@@ -110,7 +110,6 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     btop
-    vicinae
     yazi
     ghostty
     python315
