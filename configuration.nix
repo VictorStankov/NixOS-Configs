@@ -17,6 +17,7 @@
   services.resolved.enable = true;
 
   virtualisation.docker.enable = true;
+  virtualisation.docker.enableOnBoot = false;
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
