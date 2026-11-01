@@ -23,6 +23,19 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # Turn NumLock on in the initrd console (e.g. for the LUKS unlock prompt).
+  boot.initrd.systemd.extraBin.setleds = "${pkgs.kbd}/bin/setleds";
+  boot.initrd.systemd.services.numlock-on = {
+    description = "Enable NumLock on the console";
+    wantedBy = ["initrd.target"];
+    before = ["systemd-cryptsetup@.service"];
+    unitConfig.DefaultDependencies = false;
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart = "/bin/sh -c 'for tty in /dev/tty[1-6]; do setleds -D +num < \"$tty\" > \"$tty\" 2>&1; done'";
+    };
+  };
+
   networking.hostName = "vstankov"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
