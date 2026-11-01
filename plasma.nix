@@ -44,6 +44,7 @@
                 "applications:discord.desktop"
                 "applications:brave-browser.desktop"
               ];
+              behavior.grouping.method = "none";
             };
           }
           "org.kde.plasma.marginsseparator"
@@ -74,8 +75,9 @@
           "org.kde.plasma.pager"
           {
             iconTasks = {
-	    launchers = [];
+              launchers = [];
               behavior.showTasks.onlyInCurrentScreen = true;
+              behavior.grouping.method = "none";
             };
           }
           "org.kde.plasma.marginsseparator"
