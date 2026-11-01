@@ -127,6 +127,8 @@
 
     # Needed for hyprland?
     kitty
+
+    claude-code
   ];
 
   programs.zsh.enable = true;
