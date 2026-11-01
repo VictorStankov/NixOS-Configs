@@ -5,6 +5,11 @@
 }: {
   programs.plasma = {
     enable = true;
+    powerdevil.AC.autoSuspend.action = "nothing";
+    kscreenlocker = {
+      autoLock = true;
+      timeout = 5;
+    };
     shortcuts = {
       "services/com.mitchellh.ghostty.desktop"._launch = "Meta+Q";
       "services/net.local.layout-switch-2.desktop"._launch = "Ctrl+Shift";
