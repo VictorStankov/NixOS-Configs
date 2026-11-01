@@ -30,6 +30,18 @@
     options = ["fmask=0077" "dmask=0077"];
   };
 
+  fileSystems."/home/vstankov/mnt/steam-drive" = {
+    device = "/dev/disk/by-uuid/6E6CC8EE6CC8B25F";
+    fsType = "ntfs";
+    options = ["defaults" "nofail" "uid=1000" "gid=1000" "umask=022"];
+  };
+
+  fileSystems."/home/vstankov/mnt/ssd-games" = {
+    device = "/dev/disk/by-uuid/DC0A8FCC0A8FA25E";
+    fsType = "ntfs";
+    options = ["defaults" "nofail" "uid=1000" "gid=1000" "umask=022"];
+  };
+
   swapDevices = [];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
