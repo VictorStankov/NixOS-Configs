@@ -133,6 +133,15 @@
 
   programs.zsh.enable = true;
 
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+      stdenv.cc.cc.lib # libstdc++, libgcc_s
+      zlib
+      openssl
+    ];
+  };
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
