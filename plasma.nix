@@ -17,8 +17,8 @@
       "services/net.local.rofi.desktop"._launch = "Meta";
       "services/vicinae.desktop".toggle = "Meta";
     };
+    input.keyboard.numlockOnStartup = "on";
     configFile = {
-      kcminputrc.Keyboard.NumLock = 1;
       kcminputrc."Libinput/1133/49305/Logitech G502 X".PointerAcceleration = "-0.200";
       kcminputrc."Libinput/1133/49305/Logitech G502 X".PointerAccelerationProfile = 1;
       kcminputrc.Mouse.X11LibInputXAccelProfileFlat = true;
