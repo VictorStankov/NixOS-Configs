@@ -19,7 +19,6 @@ in {
     brave
     discord
     spotify
-    steam
     bitwarden-desktop
     rustdesk-flutter
 

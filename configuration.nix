@@ -117,6 +117,9 @@
   # Install firefox.
   programs.firefox.enable = true;
 
+  # Steam needs 32-bit graphics drivers, which this also enables.
+  programs.steam.enable = true;
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
