@@ -175,6 +175,19 @@ in {
       source = config.lib.file.mkOutOfStoreSymlink "${configDirectory}/hyprland/hyprland.lua";
       force = true;
     };
+    "ghostty/config.ghostty" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${configDirectory}/ghostty/config.ghostty";
+      force = true;
+    };
+    "ghostty/auto/theme.ghostty" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${configDirectory}/ghostty/auto/theme.ghostty";
+      force = true;
+    };
+    # Symlinked out of the store so settings changed in the vicinae GUI are written back to the repo.
+    "vicinae/settings.json" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${configDirectory}/vicinae/settings.json";
+      force = true;
+    };
   };
 
   # This value determines the home Manager release that your

@@ -1,0 +1,6 @@
+theme = Ayu
+window-height = 28
+window-width = 88
+window-decoration = true
+
+window-inherit-working-directory = false
