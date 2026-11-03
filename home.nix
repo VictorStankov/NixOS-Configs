@@ -33,6 +33,8 @@ in {
     spotify
     bitwarden-desktop
     rustdesk-flutter
+    qalculate-qt
+    libreoffice
 
     slack
     teams-for-linux
