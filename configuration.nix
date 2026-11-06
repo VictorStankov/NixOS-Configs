@@ -83,6 +83,41 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
+  # Brother DCP-L2530DW on the LAN, driverless via IPP Everywhere.
+  hardware.printers = {
+    ensurePrinters = [
+      {
+        name = "Brother_DCP-L2530DW";
+        location = "Home";
+        description = "Brother DCP-L2530DW";
+        deviceUri = "ipp://192.168.0.136/ipp/print";
+        model = "everywhere";
+        ppdOptions = {
+          PageSize = "A4";
+        };
+      }
+    ];
+    ensureDefaultPrinter = "Brother_DCP-L2530DW";
+  };
+
+  # Scanning on the same Brother, driverless via eSCL (sane-airscan).
+  # Avahi isn't running, so the device is declared statically; this file
+  # comes after sane-airscan and overrides its default airscan.conf.
+  hardware.sane = {
+    enable = true;
+    extraBackends = [
+      pkgs.sane-airscan
+      (pkgs.writeTextFile {
+        name = "airscan-brother";
+        destination = "/etc/sane.d/airscan.conf";
+        text = ''
+          [devices]
+          "Brother DCP-L2530DW" = http://192.168.0.136/eSCL, eSCL
+        '';
+      })
+    ];
+  };
+
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -107,9 +142,10 @@
     isNormalUser = true;
     shell = pkgs.zsh;
     description = "Victor Stankov";
-    extraGroups = ["networkmanager" "wheel" "docker"];
+    extraGroups = ["networkmanager" "wheel" "docker" "scanner" "lp"];
     packages = with pkgs; [
       kdePackages.kate
+      kdePackages.skanpage
       #  thunderbird
     ];
   };
