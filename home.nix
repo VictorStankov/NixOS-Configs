@@ -30,11 +30,15 @@ in {
   home.packages = with pkgs; [
     brave
     discord
+    vesktop
+    telegram-desktop
     spotify
     bitwarden-desktop
     rustdesk-flutter
     qalculate-qt
     libreoffice
+    lutris
+    prismlauncher
 
     slack
     teams-for-linux
