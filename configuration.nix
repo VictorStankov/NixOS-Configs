@@ -4,6 +4,7 @@
 {
   config,
   pkgs,
+  pkgs-stable,
   inputs,
   ...
 }: {
@@ -182,6 +183,8 @@
     kitty
 
     claude-code
+
+    pkgs-stable.anydesk
   ];
 
   programs.zsh.enable = true;
