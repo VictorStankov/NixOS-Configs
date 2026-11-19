@@ -17,8 +17,13 @@
   programs.awsvpnclient.enable = true;
   services.resolved.enable = true;
 
-  virtualisation.docker.enable = true;
-  virtualisation.docker.enableOnBoot = false;
+  # Rootless so Docker's bridges live in their own network namespace; on the host
+  # they show up as new LANs and make the AWS VPN client drop its sessions.
+  virtualisation.docker.enable = false;
+  virtualisation.docker.rootless = {
+    enable = true;
+    setSocketVariable = true;
+  };
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -143,7 +148,7 @@
     isNormalUser = true;
     shell = pkgs.zsh;
     description = "Victor Stankov";
-    extraGroups = ["networkmanager" "wheel" "docker" "scanner" "lp"];
+    extraGroups = ["networkmanager" "wheel" "scanner" "lp"];
     packages = with pkgs; [
       kdePackages.kate
       kdePackages.skanpage
