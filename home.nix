@@ -40,6 +40,7 @@ in {
     lutris
     prismlauncher
     lazygit
+    tmux
 
     slack
     teams-for-linux
