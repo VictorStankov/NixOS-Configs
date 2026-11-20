@@ -39,6 +39,7 @@ in {
     libreoffice
     lutris
     prismlauncher
+    lazygit
 
     slack
     teams-for-linux
