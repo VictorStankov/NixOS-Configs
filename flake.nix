@@ -50,7 +50,7 @@
           home-manager.users.vstankov = {
             imports = [
               inputs.plasma-manager.homeModules.plasma-manager
-              ./home.nix
+              ./home
             ];
           };
         }
