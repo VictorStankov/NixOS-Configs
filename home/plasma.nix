@@ -2,7 +2,26 @@
   config,
   pkgs,
   ...
-}: {
+}: let
+  # Hidden launchers that the layout-switch global shortcuts below bind to.
+  layoutSwitchEntry = name: arg: {
+    text = ''
+      [Desktop Entry]
+      Exec=${config.home.homeDirectory}/bin/layout-switch ${arg}
+      Name=${name}
+      NoDisplay=true
+      StartupNotify=false
+      Type=Application
+      X-KDE-GlobalAccel-CommandShortcut=true
+    '';
+    force = true;
+  };
+in {
+  xdg.dataFile = {
+    "applications/net.local.layout-switch.desktop" = layoutSwitchEntry "Layout Switch Main" "en_bg";
+    "applications/net.local.layout-switch-2.desktop" = layoutSwitchEntry "Layout Switch Intl" "en_intl";
+  };
+
   programs.plasma = {
     enable = true;
     powerdevil.AC.autoSuspend.action = "nothing";
