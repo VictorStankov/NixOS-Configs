@@ -14,6 +14,7 @@
     prismlauncher
     lazygit
     tmux
+    localsend
 
     slack
     teams-for-linux
