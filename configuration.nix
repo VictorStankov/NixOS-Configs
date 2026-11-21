@@ -190,6 +190,9 @@
     claude-code
 
     pkgs-stable.anydesk
+
+    # Installed system-wide so its polkit action gets registered
+    (callPackage ./pkgs/voltius.nix {})
   ];
 
   programs.zsh.enable = true;
