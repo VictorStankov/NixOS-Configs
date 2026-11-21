@@ -50,6 +50,8 @@ in {
       kwinrc.Effect-overview.BorderActivate = 9;
       kxkbrc.Layout.DisplayNames = ",,";
       kxkbrc.Layout.LayoutList = "us,bg,us";
+      kxkbrc.Layout.Options = "";
+      kxkbrc.Layout.ResetOldOptions = true;
       kxkbrc.Layout.Use = true;
       kxkbrc.Layout.VariantList = ",phonetic,intl";
       plasma-localerc.Formats.LANG = "en_US.UTF-8";
