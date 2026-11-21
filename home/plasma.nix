@@ -46,7 +46,7 @@
             iconTasks = {
               launchers = [
                 "preferred://filemanager"
-                "applications:discord.desktop"
+                "applications:vesktop.desktop"
                 "applications:brave-browser.desktop"
               ];
               behavior.grouping.method = "none";
