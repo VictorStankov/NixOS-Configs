@@ -8,15 +8,15 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1792923578,
-        "narHash": "sha256-HGCS6nQstxT1jIkoFAOcj63tuEKIeC4QYmjIp3aYr24=",
-        "owner": "estebanheish",
+        "lastModified": 1795304029,
+        "narHash": "sha256-n65THRMSJwCGB6JD0oLfjSrUne/HRgzwCWtJykPJYqU=",
+        "owner": "VictorStankov",
         "repo": "aws_vpn_client_flake",
-        "rev": "ca2d95cfb457cd468d25f825f72744dc3c94ece4",
+        "rev": "d7f11e95ef471ca795adc66fd3e040c1f52cbc5b",
         "type": "github"
       },
       "original": {
-        "owner": "estebanheish",
+        "owner": "VictorStankov",
         "repo": "aws_vpn_client_flake",
         "type": "github"
       }

@@ -17,7 +17,7 @@
     };
 
     awsvpnclient = {
-      url = "github:estebanheish/aws_vpn_client_flake";
+      url = "github:VictorStankov/aws_vpn_client_flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
