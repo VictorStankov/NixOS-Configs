@@ -28,6 +28,7 @@
       kdeglobals.General.DeviceLedsAccentColored = false;
       kdeglobals.General.TerminalApplication = "/usr/bin/ghostty --gtk-single-instance=true";
       kdeglobals.General.TerminalService = "com.mitchellh.ghostty.desktop";
+      kwinrc.Effect-overview.BorderActivate = 9;
       kxkbrc.Layout.DisplayNames = ",,";
       kxkbrc.Layout.LayoutList = "us,bg,us";
       kxkbrc.Layout.Use = true;
