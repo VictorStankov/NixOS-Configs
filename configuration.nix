@@ -25,6 +25,8 @@
     setSocketVariable = true;
   };
 
+  virtualisation.virtualbox.host.enable = true;
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -148,7 +150,7 @@
     isNormalUser = true;
     shell = pkgs.zsh;
     description = "Victor Stankov";
-    extraGroups = ["networkmanager" "wheel" "scanner" "lp"];
+    extraGroups = ["networkmanager" "wheel" "scanner" "lp" "vboxusers"];
     packages = with pkgs; [
       kdePackages.kate
       kdePackages.skanpage
