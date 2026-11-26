@@ -12,6 +12,7 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     inputs.awsvpnclient.nixosModules.default
+    ./modules/safenet.nix
   ];
 
   programs.awsvpnclient.enable = true;
