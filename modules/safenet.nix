@@ -61,10 +61,12 @@ in {
     '';
 
     # Okular's default certificate DB is the Firefox profile, which doesn't
-    # have the token (Firefox only loads it at runtime from policy)
+    # have the token (Firefox only loads it at runtime from policy).
+    # Okular parses this as a URL (QUrl(...).toLocalFile()), so a bare path
+    # becomes "" and it silently falls back to the default DB
     programs.plasma.configFile.okular-generator-popplerrc.Signatures = {
       UseDefaultCertDB = false;
-      DBCertificatePath = "${config.home.homeDirectory}/.pki/nssdb";
+      DBCertificatePath = "file://${config.home.homeDirectory}/.pki/nssdb";
     };
   };
 }
