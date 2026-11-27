@@ -4,6 +4,8 @@
 
     shellAliases = {
       ll = "ls -la";
+      # path: so the gitignored hardware-configuration.nix is included.
+      rebuild = "sudo nixos-rebuild switch --flake path:$(readlink -f /etc/nixos)";
     };
 
     oh-my-zsh = {

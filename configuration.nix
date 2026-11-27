@@ -9,7 +9,8 @@
   ...
 }: {
   imports = [
-    # Include the results of the hardware scan.
+    # Machine-specific output of `nixos-generate-config`, gitignored (see nixos-init).
+    # Only visible to `--flake path:...` rebuilds, which don't filter by git.
     ./hardware-configuration.nix
     inputs.awsvpnclient.nixosModules.default
     ./modules/safenet.nix
@@ -43,6 +44,19 @@
       Type = "oneshot";
       ExecStart = "/bin/sh -c 'for tty in /dev/tty[1-6]; do setleds -D +num < \"$tty\" > \"$tty\" 2>&1; done'";
     };
+  };
+
+  # Extra NTFS drives; nofail so boot continues if one is missing.
+  fileSystems."/home/vstankov/mnt/steam-drive" = {
+    device = "/dev/disk/by-uuid/6E6CC8EE6CC8B25F";
+    fsType = "ntfs";
+    options = ["defaults" "nofail" "uid=1000" "gid=1000" "umask=022"];
+  };
+
+  fileSystems."/home/vstankov/mnt/ssd-games" = {
+    device = "/dev/disk/by-uuid/DC0A8FCC0A8FA25E";
+    fsType = "ntfs";
+    options = ["defaults" "nofail" "uid=1000" "gid=1000" "umask=022"];
   };
 
   networking.hostName = "vstankov"; # Define your hostname.
