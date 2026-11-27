@@ -33,6 +33,10 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # Don't throttle processes that take split-lock traps; Ubisoft games
+  # (e.g. AC Black Flag Resynced) hit them constantly and appear to hang.
+  boot.kernel.sysctl."kernel.split_lock_mitigate" = 0;
+
   # Turn NumLock on in the initrd console (e.g. for the LUKS unlock prompt).
   boot.initrd.systemd.extraBin.setleds = "${pkgs.kbd}/bin/setleds";
   boot.initrd.systemd.services.numlock-on = {
